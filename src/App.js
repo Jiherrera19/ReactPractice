@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 
+import Checklist from './components/Checklist';
+
 function App() {
   return (
     <div>
-      <h1>Base Application</h1>
+      <Checklist />
     </div>
   );
 }
