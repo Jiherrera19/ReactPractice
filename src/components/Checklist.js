@@ -14,11 +14,24 @@ class Checklist extends React.Component {
         this.state = {
             todosData: todosData
         };
+        this.handleItemClicked = this.handleItemClicked.bind(this);
+    }
+
+    handleItemClicked(id) {
+        this.setState(state => {
+            const updatedTodos = state.todosData.map(todo => {
+                if (todo.id === id) {
+                    return {...todo, completed: !todo.completed}
+                };
+                return todo;
+            });
+            return {todosData: updatedTodos}
+        });
     }
 
     render() {
-        const checklistItems = this.state.todosData.map(todo => {
-            return <ChecklistItem id={"custom-" + todo.id} key={"custom-" + todo.id} label={todo.text} completed={todo.completed}/>;
+        const checklistItems = this.state.todosData.map(item => {
+            return <ChecklistItem key={item.id} todo={item} handler={this.handleItemClicked}/>;
         });
         return (
             <div>

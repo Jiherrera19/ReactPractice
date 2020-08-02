@@ -7,9 +7,9 @@ class ChecklistItem extends React.Component {
     render() {
         return (
         <ListGroup.Item>
-            <Form.Check type="checkbox" id={this.props.id} custom>
-                <Form.Check.Input type="checkbox" defaultChecked={this.props.completed}/>
-                <Form.Check.Label className="active">{this.props.label}</Form.Check.Label>
+            <Form.Check type="checkbox" id={this.props.todo.id} custom>
+                <Form.Check.Input type="checkbox" checked={this.props.todo.completed} onChange={() => this.props.handler(this.props.todo.id)}/>
+                <Form.Check.Label className="active">{this.props.todo.text}</Form.Check.Label>
             </Form.Check>
         </ListGroup.Item>
         );
