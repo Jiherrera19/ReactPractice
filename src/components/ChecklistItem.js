@@ -6,9 +6,9 @@ import Form from 'react-bootstrap/Form';
 function ChecklistItem(props) {
     return (
         <ListGroup.Item>
-            <Form.Check type="checkbox" id={props.id}>
-                <Form.Check.Input type="checkbox"/>
-                <Form.Check.Label>{props.label}</Form.Check.Label>
+            <Form.Check type="checkbox" id={props.id} custom>
+                <Form.Check.Input type="checkbox" defaultChecked={props.completed}/>
+                <Form.Check.Label className="active">{props.label}</Form.Check.Label>
             </Form.Check>
         </ListGroup.Item>
     );
